@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "projects")
@@ -30,7 +31,7 @@ public class Project {
                     updatable =false
             )}
     )
-    private ArrayList<Employee> employees;
+    private List<Employee> employees;
 
     public Project(){};
 
@@ -64,7 +65,7 @@ public class Project {
         this.id = id;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 

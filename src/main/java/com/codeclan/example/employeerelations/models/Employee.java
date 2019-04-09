@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "employees")
@@ -17,6 +18,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "employee_number")
     private Long employeeNumber;
 
     @JsonIgnore
@@ -33,7 +35,7 @@ public class Employee {
                     nullable = false,
                     updatable = false)
             })
-    private ArrayList<Project> projects;
+    private List<Project> projects;
 
     @ManyToOne
     @JoinColumn(name = "department_id", nullable = false)
@@ -72,7 +74,7 @@ public class Employee {
         this.employeeNumber = employeeNumber;
     }
 
-    public ArrayList<Project> getProjects() {
+    public List<Project> getProjects() {
         return projects;
     }
 

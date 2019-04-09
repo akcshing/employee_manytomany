@@ -13,14 +13,15 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column
+    @Column(name = "name")
     private String departmentName;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "department")
-    private ArrayList<Employee> employees;
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    private List<Employee> employees;
 
 
     public Department(){
@@ -39,7 +40,7 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
