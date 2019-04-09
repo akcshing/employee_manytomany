@@ -34,7 +34,7 @@ public class EmployeerelationsApplicationTests {
 		Department department = new Department("SMACK ALLEY");
 		departmentRepository.save(department);
 
-		Employee employee1 = new Employee("Dave", "Davington", department);
+		Employee employee1 = new Employee("Dave", "Davington", department, 2);
 		employeeRepository.save(employee1);
 	}
 
@@ -43,7 +43,7 @@ public class EmployeerelationsApplicationTests {
 		Department department = new Department("TEAM UNICORN");
 		departmentRepository.save(department);
 
-		Employee employee1 = new Employee("Michael", "Michaelton", department);
+		Employee employee1 = new Employee("Michael", "Michaelton", department, 3);
 		employeeRepository.save(employee1);
 
 		Project project = new Project("Operation Skullduggery", 20);

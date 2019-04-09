@@ -18,15 +18,17 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employee_number")
-    private Long employeeNumber;
+    private Long id;
+
+    @Column
+    private int employeeNumber;
 
     @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "employees_projects",
             joinColumns = { @JoinColumn(
-                    name = "employeeNumber",
+                    name = "employee_id",
                     nullable = false,
                     updatable = false)
             },
@@ -43,9 +45,10 @@ public class Employee {
 
     public Employee(){};
 
-    public Employee(String firstName, String lastName, Department department){
+    public Employee(String firstName, String lastName, Department department, int employeeNumber){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.employeeNumber = employeeNumber;
         this.projects = new ArrayList<>();
         this.department = department;
     }
@@ -66,11 +69,11 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public Long getEmployeeNumber() {
+    public int getEmployeeNumber() {
         return employeeNumber;
     }
 
-    public void setEmployeeNumber(Long employeeNumber) {
+    public void setEmployeeNumber(int employeeNumber) {
         this.employeeNumber = employeeNumber;
     }
 
@@ -88,5 +91,13 @@ public class Employee {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
